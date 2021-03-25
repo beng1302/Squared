@@ -4,13 +4,13 @@ import random
 import os
 import time
   
-filename = "tree.png"
+filename = "pictures/test.png"
 im = Image.open(filename)
 im = im.convert("RGBA")
 overlay = Image.new('RGBA', im.size, (0,0,0,0))
 width, height = im.size
 imdata = np.array(im)
-iterations = 1000000
+iterations = 100000
 print(im.format, im.size, im.mode, iterations, filename)
 
 def main():
@@ -39,12 +39,12 @@ def main():
         draw.rectangle(((x-size,y-size),(x+size, y+size)), fill=tuple(color), outline=(0,0,0,0))
 
         #percentage complete timer
-        if i % int(iterations/100) == 0:
+        if i % int(iterations/20) == 0:
             print("%d%% in %ss" % (i/iterations*100, round((time.time() - start_time),5)))
 
 
     img = Image.alpha_composite(im, overlay)
-    img.save(os.path.splitext(filename)[0]+"-squared.png")
+    img.save(os.path.splitext(filename)[0]+"_squared.png")
 
     return 0
 
