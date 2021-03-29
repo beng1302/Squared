@@ -4,17 +4,18 @@ import random
 import os
 import time
   
-filename = "pictures/test.png"
+filename = "pictures/test.jpg"
 im = Image.open(filename)
 im = im.convert("RGBA")
-overlay = Image.new('RGBA', im.size, (0,0,0,0))
+overlay = Image.new('RGBA', im.size, (255,255,255,255))
 width, height = im.size
 imdata = np.array(im)
-iterations = 100000
-print(im.format, im.size, im.mode, iterations, filename)
+print(im.format, im.size, im.mode, filename)
 
 def main():
     start_time = time.time()
+
+    iterations = 100000
     for i in range(1,iterations+1):
 
         #choose random center point
@@ -36,7 +37,7 @@ def main():
 
         #set square of that color
         draw = ImageDraw.Draw(overlay)
-        draw.rectangle(((x-size,y-size),(x+size, y+size)), fill=tuple(color), outline=(0,0,0,0))
+        draw.rectangle(((x-size,y-size),(x+size, y+size)), fill=tuple(color), outline=None)
 
         #percentage complete timer
         if i % int(iterations/20) == 0:

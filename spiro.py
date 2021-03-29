@@ -10,7 +10,7 @@ img = Image.new('RGBA', (width, height), WHITE)
 def main():
 
     R = 300 #radius of large circle
-    r = 4 #radius of small circle
+    r = 2 #radius of small circle
     p = 150 #distance from plotting point to small circle center
     #start with 200,4,160
 
